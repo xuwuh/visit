@@ -1,17 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
-    <meta name="xuwu_visit" content="width=device-width, initial-scale=1.0">
-    <title>xuwu_visit</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>xuwu_visit</title>
 </head>
+
 <body class="page-profile">
+
 <div class="container">
   <div class="frame">
 
     <div class="header">
       <span>2026</span>
+
+      <div class="lang-switcher">
+        <select id="langSelect" class="lang-select">
+          <option value="ru">RU</option>
+          <option value="en">EN</option>
+        </select>
+      </div>
     </div>
 
     <div class="main">
@@ -23,24 +32,65 @@
         <h1>xuwu</h1>
 
         <div class="info-box">
-          <p>художник | мерчедел | немного програмист</p>
-          <p>никнеймы: 蓝猫 | lanmao | xuwu | Ян</p>
+          <p data-i18n="desc1">художник | мерчедел | немного программист</p>
+          <p data-i18n="desc2">никнеймы: 蓝猫 | lanmao | xuwu | Ян</p>
         </div>
 
         <div class="links">
-          <a href="commision.html" class="link-btn">комишки</a>
-          <a href="https://t.me/constellationshelf" class="link-btn">мерч</a>
+          <a href="commision.html" class="link-btn" data-i18n="comm">комишки</a>
+          <a href="https://t.me/constellationshelf" class="link-btn" data-i18n="merch">мерч</a>
         </div>
 
         <div class="socials">
           <a href="https://twitter.com/_Lan_Mao_" class="social">twitter</a>
           <a href="https://t.me/ln_mo" class="social">telegram</a>
-          <a href="https://vk.com/ln_mo" class="social">vk</a>          
+          <a href="https://vk.com/ln_mo" class="social">vk</a>
         </div>
       </div>
     </div>
 
   </div>
 </div>
+
+<script>
+const translations = {
+  ru:{
+    desc1:"художник | мерчедел | немного программист",
+    desc2:"никнеймы: 蓝猫 | lanmao | xuwu | Ян",
+    comm:"комишки",
+    merch:"мерч"
+  },
+  en:{
+    desc1:"artist | merch creator | beginner programmer",
+    desc2:"nicknames: 蓝猫 | lanmao | xuwu | Yan",
+    comm:"commissions",
+    merch:"merch"
+  }
+};
+
+function applyLanguage(lang){
+  document.documentElement.lang = lang;
+
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const key = el.dataset.i18n;
+    if(translations[lang][key]){
+      el.textContent = translations[lang][key];
+    }
+  });
+
+  localStorage.setItem("siteLanguage",lang);
+}
+
+const langSelect = document.getElementById("langSelect");
+const saved = localStorage.getItem("siteLanguage") || "ru";
+
+langSelect.value = saved;
+applyLanguage(saved);
+
+langSelect.addEventListener("change",e=>{
+  applyLanguage(e.target.value);
+});
+</script>
+
 </body>
 </html>
