@@ -356,26 +356,67 @@ a{color:inherit;text-decoration:none}
   .page-services .text-panel-head{grid-template-columns:1fr}
   .page-services .hero-note{text-align:left}
 }
-@media(max-width:800px){
-  .page-profile .main{grid-template-columns:1fr;text-align:center}
-  .page-profile .avatar{margin:0 auto}
-  .page-profile .links{grid-template-columns:repeat(2,1fr)}
-}
 @media(max-width:640px){
-  .page-services .container{width:min(100% - 18px,var(--container))}
-  .page-services .service-strip,
-  .page-services .gallery-grid{grid-template-columns:1fr}
-  .page-services .service-image{height:72vh;min-height:360px}
-  .page-services .hero,
-  .page-services .gallery-wrap,
-  .page-services .after-info,
-  .page-services .nav-row{padding-left:14px;padding-right:14px}
-  .page-services .nav-row,
-  .page-services .after-info,
-  .page-services .gallery-wrap,
-  .page-services .hero{padding-top:14px}
-  .page-services .top-panel{padding:14px}
-  .page-services .info-block{margin-left:14px;margin-right:14px}
+  .page-profile .container{
+    width:100%;
+    margin:0;
+    padding:10px;
+  }
+
+  .page-profile .frame{
+    width:100%;
+    padding:24px 16px;
+  }
+
+  .page-profile .header{
+    font-size:14px;
+  }
+
+  .page-profile .main{
+    grid-template-columns:1fr;
+    gap:24px;
+    text-align:center;
+  }
+
+  .page-profile .avatar{
+    width:220px;
+    height:220px;
+    margin:0 auto;
+  }
+
+  .page-profile .info h1{
+    font-size:clamp(40px,10vw,56px);
+  }
+
+  .page-profile .info-box{
+    padding:14px 10px;
+    font-size:clamp(13px,2.5vw,16px);
+    white-space:nowrap;
+  }
+
+  .page-profile .links{
+    display:flex;
+    flex-direction:row;
+    flex-wrap:nowrap;
+    gap:12px;
+    justify-content:center;
+  }
+
+  .page-profile .link-btn{
+    flex:1 1 0;
+    padding:14px 10px;
+    font-size:16px;
+    white-space:nowrap;
+  }
+
+  .page-profile .socials{
+    justify-content:center;
+  }
+
+  .page-profile .social{
+    font-size:14px;
+    padding:10px 14px;
+  }
 }
 .scroll-top{
   position:fixed;
